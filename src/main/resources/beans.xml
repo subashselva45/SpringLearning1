@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean name = "homeAddress" class="io.pragra.learning.springlearning1.HomeAddress">
+        <constructor-arg name ="streetName" value = "RankinAvenue"></constructor-arg>
+        <constructor-arg name ="streetNumber" value = "467"></constructor-arg>
+        <constructor-arg name = "city" value = "windsor"></constructor-arg>
+        <constructor-arg name = "country" value = "canada"></constructor-arg>
+    </bean>
+    <bean name ="officeAddress" class = "io.pragra.learning.springlearning1.OfficeAddress">
+        <constructor-arg name = "officeName" value="pragra Inc"></constructor-arg>
+        <property name="officeName" value = "Pragra inc"></property>
+    </bean>
+
+    <bean name = "person" init-method="init" destroy-method="destroy" class = "io.pragra.learning.springlearning1.Person" scope="singleton">
+        <constructor-arg name ="name" value = "Subash"></constructor-arg>
+        <constructor-arg name = "age" value = "25"></constructor-arg>
+        <constructor-arg name = "address" ref = "officeAddress"></constructor-arg>
+        <constructor-arg name = "hobbies">
+            <list>
+                <value>WatchingTV</value>
+                <value>Instagram</value>
+                <value>Youtube</value>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
